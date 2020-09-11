@@ -2,7 +2,7 @@ service: packt-sample-lambda-api
 
 provider:
   name: aws
-  runtime: nodejs6.10
+  runtime: nodejs12.x
   memorySize: 128
   stage: dev
   region: eu-west-1
@@ -32,7 +32,7 @@ functions:
       - http:
           path: getauthors/{email}
           method: get
-  
+
   create-author:
     handler: handler.createAuthor
     events:
@@ -40,7 +40,7 @@ functions:
           path: createauthor
           method: post
 
-resources:  
+resources:
   Resources:
     DynamoDbTable:
       Type: AWS::DynamoDB::Table
@@ -61,7 +61,7 @@ resources:
       Properties:
         PolicyName: lambda-dynamodb
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: "2012-10-17"
           Statement:
             - Effect: Allow
               Action:
@@ -72,5 +72,3 @@ resources:
               Resource: arn:aws:dynamodb:*:*:table/packt-authors-table
         Roles:
           - Ref: IamRoleLambdaExecution
-
-

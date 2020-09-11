@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "serverless config credentials --provider aws",
+    "deploy": "serverless deploy -v",
+    "dev": "serverless invoke local -f reads3"
   },
   "repository": {
     "type": "git",
@@ -17,7 +19,7 @@
   },
   "homepage": "https://github.com/jamescross91/packt-sample-lambda-api#readme",
   "dependencies": {
-    "aws-sdk": "^2.57.0",
-    "serverless": "^1.22.0"
+    "aws-sdk": "2.749.0",
+    "serverless": "1.82.0"
   }
 }
